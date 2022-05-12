@@ -1,23 +1,8 @@
 # terraform-module-template
 
-このリポジトリはTerraformのmoduleを作成する際のテンプレートである。
+このリポジトリRDSのインスタンス更新対応をスケジューリングするためのTerraform moduleである。
 
-このリポジトリを使用してリポジトリを作成するとTerraformリポジトリ作成時に便利なコマンドがデフォルトで使用できるようになる。
-
-## デフォルトで付随する機能
-
-### 開発時
-- .editorconfigによるコードフォーマットの統一
-
-### git commit時
-- terraform fmtやvalidateによる安全確認
-- terraform-docsによるドキュメント作成
-- master、mainブランチのPush禁止
-- 秘密鍵、AWSのアクセスキー混入のブロック
-
-### github action
-- terraform fmtやvalidateによる安全確認
-- Terraformのドキュメント更新
+このリポジトリで生成されるリソースはStepFunctionとEventBrigeになります。
 
 ## 実行環境
 - terraform-docs
@@ -27,19 +12,28 @@
 - pre-commit
   - pre-commit 2.16.0
 
-## 環境構築
+## 初期設定
 
 ```
-$ pre-commit install
 $ yarn install
+$ pre-commit install
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Usage:
 
 ```
-module "hacomono-terraform-template" {
-  source = "git@github.com:hacomono/hacomono-terraform-template.git"
+module "terraform-modify-db-schedule" {
+  source = "git@github.com:hacomono/terraform-modify-db-schedule.git"
+
+  resource_prefix               = "terraform-modify-db-schedule"
+  schedule_expression           = "cron(37 10 11 5 ? 2022)"
+  sfn_iam_role_arn              = "arn:aws:iam::123456789012:role/sfn-modify-db-schedule"
+  cloudwatch_event_iam_role_arn = "arn:aws:iam::123456789012:role/cloudwatch-event-db-schedule"
+  modify_parameters             = {
+    DbInstanceIdentifier = "h-hacomono-develop01-db"
+    DbInstanceClass      = "db.t3.large"
+  }
 }
 ```
 
@@ -52,7 +46,9 @@ module "hacomono-terraform-template" {
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.13.0 |
 
 ## Modules
 
@@ -60,15 +56,23 @@ No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_cloudwatch_event_rule.modify-db](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule) | resource |
+| [aws_cloudwatch_event_target.modify-db](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target) | resource |
+| [aws_sfn_state_machine.modify_db_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sfn_state_machine) | resource |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_cloudwatch_event_iam_role_arn"></a> [cloudwatch\_event\_iam\_role\_arn](#input\_cloudwatch\_event\_iam\_role\_arn) | n/a | `string` | n/a | yes |
+| <a name="input_modify_parameters"></a> [modify\_parameters](#input\_modify\_parameters) | n/a | `map(any)` | n/a | yes |
+| <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | n/a | `string` | n/a | yes |
+| <a name="input_schedule_expression"></a> [schedule\_expression](#input\_schedule\_expression) | n/a | `string` | n/a | yes |
+| <a name="input_sfn_iam_role_arn"></a> [sfn\_iam\_role\_arn](#input\_sfn\_iam\_role\_arn) | n/a | `string` | n/a | yes |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_test"></a> [test](#output\_test) | n/a |
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
