@@ -17,6 +17,8 @@
 ```
 $ yarn install
 $ pre-commit install
+$ yarn husky init
+$ yarn husky install
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
