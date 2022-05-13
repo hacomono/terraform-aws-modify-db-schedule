@@ -25,13 +25,13 @@ $ yarn husky install
 Usage:
 
 ```
-module "terraform-modify-db-schedule" {
-  source = "git@github.com:hacomono/terraform-modify-db-schedule.git"
+module "terraform-aws-modify-db-schedule" {
+  source = "git@github.com:hacomono/terraform-aws-modify-db-schedule.git"
 
-  resource_prefix               = "terraform-modify-db-schedule"
+  resource_prefix               = "terraform-aws-modify-db-schedule"
   schedule_expression           = "cron(37 10 11 5 ? 2022)"
-  sfn_iam_role_arn              = "arn:aws:iam::123456789012:role/sfn-modify-db-schedule"
-  cloudwatch_event_iam_role_arn = "arn:aws:iam::123456789012:role/cloudwatch-event-db-schedule"
+  sfn_iam_role_arn              = "arn:aws:iam::123456789012:role/sfn-aws-modify-db-schedule"
+  cloudwatch_event_iam_role_arn = "arn:aws:iam::123456789012:role/cloudwatch-aws-modify-db-schedule"
   modify_parameters             = {
     DbInstanceIdentifier = "h-hacomono-develop01-db"
     DbInstanceClass      = "db.t3.large"

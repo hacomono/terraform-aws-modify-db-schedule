@@ -11,7 +11,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_terraform-modify-db-schedule"></a> [terraform-modify-db-schedule](#module\_terraform-modify-db-schedule) | ../ | n/a |
+| <a name="module_terraform-aws-modify-db-schedule"></a> [terraform-aws-modify-db-schedule](#module\_terraform-aws-modify-db-schedule) | ../ | n/a |
 
 ## Resources
 
