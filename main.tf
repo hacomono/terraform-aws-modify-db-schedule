@@ -10,7 +10,7 @@
  *   sfn_iam_role_arn              = "arn:aws:iam::123456789012:role/sfn-aws-modify-db-schedule"
  *   cloudwatch_event_iam_role_arn = "arn:aws:iam::123456789012:role/cloudwatch-aws-modify-db-schedule"
  *   modify_parameters             = {
- *     DbInstanceIdentifier = "h-hacomono-develop01-db"
+ *     DbInstanceIdentifier = "your-db-Identifier"
  *     DbInstanceClass      = "db.t3.large"
  *   }
  * }
