@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.0](https://github.com/hacomono/terraform-aws-modify-db-schedule/compare/v1.0.0...v1.1.0) (2022-05-13)
+
+
+### Features
+
+* サンプルコードに問題があったので修正 ([6cdaba8](https://github.com/hacomono/terraform-aws-modify-db-schedule/commit/6cdaba8ea4156a15b2628d7b16038cd92774d8ce))
+
 # 1.0.0 (2022-05-13)
 
 
