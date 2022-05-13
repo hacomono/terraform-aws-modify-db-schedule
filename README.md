@@ -68,11 +68,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cloudwatch_event_iam_role_arn"></a> [cloudwatch\_event\_iam\_role\_arn](#input\_cloudwatch\_event\_iam\_role\_arn) | n/a | `string` | n/a | yes |
-| <a name="input_modify_parameters"></a> [modify\_parameters](#input\_modify\_parameters) | n/a | `map(any)` | n/a | yes |
-| <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | n/a | `string` | n/a | yes |
-| <a name="input_schedule_expression"></a> [schedule\_expression](#input\_schedule\_expression) | n/a | `string` | n/a | yes |
-| <a name="input_sfn_iam_role_arn"></a> [sfn\_iam\_role\_arn](#input\_sfn\_iam\_role\_arn) | n/a | `string` | n/a | yes |
+| <a name="input_cloudwatch_event_iam_role_arn"></a> [cloudwatch\_event\_iam\_role\_arn](#input\_cloudwatch\_event\_iam\_role\_arn) | step functionに付与するIAM ROLEのarnを指定する | `string` | n/a | yes |
+| <a name="input_modify_parameters"></a> [modify\_parameters](#input\_modify\_parameters) | step functionに付与するIAM ROLEのarnを指定する<br>例: modify\_parameters = {<br>      DbInstanceIdentifier = "(RDSのIdentifierを指定)"<br>      DbInstanceClass      = "db.t3.large"<br>    } | `map(any)` | n/a | yes |
+| <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | 全てのリソースの名前のPrefixに指定される | `string` | n/a | yes |
+| <a name="input_schedule_expression"></a> [schedule\_expression](#input\_schedule\_expression) | 更新処理を行う時間をcron形式で指定する<br>例: cron(37 10 11 5 ? 2022)" | `string` | n/a | yes |
+| <a name="input_sfn_iam_role_arn"></a> [sfn\_iam\_role\_arn](#input\_sfn\_iam\_role\_arn) | step functionに付与するIAM ROLEのarnを指定する | `string` | n/a | yes |
 
 ## Outputs
 
