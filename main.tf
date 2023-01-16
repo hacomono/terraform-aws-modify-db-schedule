@@ -17,6 +17,11 @@
  * ```
  */
 
+# DB存在確認の為の記述
+data "aws_db_instance" "check_existence_db" {
+  db_instance_identifier = var.modify_parameters.DbInstanceIdentifier
+}
+
 resource "aws_cloudwatch_event_rule" "modify-db" {
   name                = "${var.resource_prefix}-${local.encode_cron}"
   schedule_expression = var.schedule_expression
