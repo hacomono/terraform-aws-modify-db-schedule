@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/hacomono/terraform-aws-modify-db-schedule/compare/v1.1.0...v1.1.1) (2023-01-16)
+
+
+### Bug Fixes
+
+* DB存在確認のロジックを実装した ([3eb0d5c](https://github.com/hacomono/terraform-aws-modify-db-schedule/commit/3eb0d5ceed0be431b8d7ce71f87928419b34f807))
+
 # [1.1.0](https://github.com/hacomono/terraform-aws-modify-db-schedule/compare/v1.0.0...v1.1.0) (2022-05-13)
 
 
